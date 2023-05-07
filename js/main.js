@@ -1,19 +1,26 @@
-// #1
+
+/*
+ * #1
+ */
 var userObj = {
-  firstName: 'Maxim',
-  lastName: 'Melikhov',
-  age: 26,
+  age: 20,
+  firstName: 'Name',
+  lastName: 'Last',
   fullName() {
-    return '${userObj.firstName} ${userObj.lastName}';
+    return `${userObj.firstName} ${userObj.lastName}`;
   }
 };
 
 console.log(userObj);
 
-// #2
+/*
+ * #2
+ */
 console.log(userObj.fullName());
 
-// #3
+/*
+ * #3
+ */
 function defUpperStr(str) {
   return (str || 'Default text').toUpperCase();
 }
@@ -21,7 +28,9 @@ function defUpperStr(str) {
 console.log(defUpperStr('My text'));
 console.log(defUpperStr());
 
-// #4
+/*
+ * #4
+ */
 function evenFn(n) {
   let arr = [];
 
@@ -34,36 +43,38 @@ console.log(evenFn(10));
 console.log(evenFn(15));
 console.log(evenFn(20));
 
-// #5
+/*
+ * #5
+ */
 function weekFn(cond) {
   let str = '';
 
   switch (cond) {
     case 1:
-      str = 'Понеділок';
+      str = 'Понедельник';
       break;
     case 2:
-      str = 'Вівторок';
+      str = 'Вторник';
       break;
     case 3:
-      str = 'Середа';
+      str = 'Среда';
       break;
     case 4:
       str = 'Четверг';
       break;
     case 5:
-      str = 'Пʼятниця';
+      str = 'Пятница';
       break;
     case 6:
-      str = 'Субота';
+      str = 'Суббота';
       break;
     case 7:
-      str = 'Неділя';
+      str = 'Воскресенье';
       break;
-
     default:
       str = null;
   }
+
   return str;
 }
 
@@ -74,12 +85,27 @@ console.log(weekFn(9));
 console.log(weekFn(1.5));
 console.log(weekFn('2'));
 
-// #6
+/*
+ * #6
+ */
 function ageClassification(num) {
   return num > 0
-    ? num > 24 ? num > 44 ? num > 65 ? num > 75 ? num > 90 ? num > 122 ? null : 'долгожители' : 'старческий возраст' : 'пожилой возраст' : 'средний возраст' : 'молодой возраст' : 'детский возраст'
+    ? num > 24
+      ? num > 44
+        ? num > 65
+          ? num > 75
+            ? num > 90
+              ? num > 122
+                ? null
+                : 'долгожители'
+              : 'старческий возраст'
+            : 'пожилой возраст'
+          : 'средний возраст'
+        : 'молодой возраст'
+      : 'детский возраст'
     : null;
 }
+
 
 console.log('    -1 :', ageClassification(-1));
 console.log('     1 :', ageClassification(1));
@@ -97,7 +123,10 @@ console.log('   122 :', ageClassification(122));
 console.log('122.01 :', ageClassification(122.01));
 console.log('   150 :', ageClassification(150));
 
-// #7
+/*
+ * #7
+ */
+
 function oddFn(n) {
   let arr = [];
   let i = 0;
@@ -111,9 +140,11 @@ console.log(oddFn(10));
 console.log(oddFn(15));
 console.log(oddFn(20));
 
-// #8
-function mainFunc(a, b, callback) {
-  if (callback && typeof callback === 'function') return callback(a, b);
+/*
+ * #8
+ */
+function mainFunc(a, b, cb) {
+  if (cb && typeof cb === 'function') return cb(a, b);
 
   return false;
 }
@@ -131,7 +162,6 @@ function cbAdd(a, b) {
 }
 
 console.log(mainFunc(2, 5, cbRandom));
-console.log(mainFunc(10, 30, cbRandom));
 console.log(mainFunc(2, 5, cbPow));
 console.log(mainFunc(2, 5, cbAdd));
-console.log(mainFunc(2, 5, 'not a func'));
+console.log(mainFunc(2, 5, 'not a func')); 
